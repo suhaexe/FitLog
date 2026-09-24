@@ -16,7 +16,7 @@ export type Workout = {
   instructions: string[];
 };
 
-export async function getAllWorkout(id: string) {
+export async function getAllWorkouts() {
   const res = await fetch(API_URL);
   const data = await res.json();
   return data as Workout[];
