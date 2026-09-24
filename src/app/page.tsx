@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Dumbbell } from "lucide-react";
 import { getAllWorkouts, Workout } from "@/lib/api";
 import Image from "next/image";
 import WorkoutCard from "@/components/WorkoutCard";
@@ -30,7 +29,8 @@ const HomePage = () => {
   }
   return (
     <div>
-      <section className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">
+      <section className="max-w-7xl mx-auto px-4 py-6">
+        <div className="bg-card border border-line rounded-2xl p-8 md:p-12 items-center  grid md:grid-cols-2 gap-16">
         <div>
           <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">
             Workout Library
@@ -46,18 +46,18 @@ const HomePage = () => {
             href="#library"
             className="inline-flex items-center gap-2 bg-accent text-black font-bold uppercase text-sm px-6 py-3 rounded-full"
           >
-            <Dumbbell size={16} />
             Browse Workouts
           </a>
         </div>
 
         <Image
-          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800"
+          src="/banner.png"
           alt="gym"
           width={800}
           height={600}
-          className="rounded-2xl w-full h-80 object-cover"
+          className="w-full h-96 object-contain"
         />
+        </div>
       </section>
 
       <section id="library" className="max-w-7xl mx-auto px-4 py-10">
@@ -95,7 +95,7 @@ const HomePage = () => {
           </div>
         )}
       </section>
-    </div>
+      </div>
   );
 };
 export default HomePage;
