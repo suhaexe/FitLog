@@ -15,7 +15,9 @@ export const metadata = {
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" className={inter.variable + " " + oswald.variable}>
+    <html lang="en"
+    data-scroll-behavior="smooth" 
+    className={inter.variable + " " + oswald.variable}>
       <body className="flex flex-col bg-bg text-white min-h-screen">
         <PlanProvider>
           <Navbar />

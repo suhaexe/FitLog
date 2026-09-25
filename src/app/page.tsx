@@ -55,6 +55,7 @@ const HomePage = () => {
           alt="gym"
           width={800}
           height={600}
+          loading= "eager"
           className="w-full h-96 object-contain"
         />
         </div>
