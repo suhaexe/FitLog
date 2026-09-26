@@ -11,13 +11,17 @@ const HomePage = () => {
   const [sortBy, setSortBy] = useState("duration");
 
   useEffect(() => {
-    async function loadData() {
+  async function loadData() {
+    try {
       const data = await getAllWorkouts();
       setWorkouts(data);
-      setLoading(false);
+    } catch (error) {
+      console.error("Failed to load workouts:", error);
     }
-    loadData();
-  }, []);
+    setLoading(false);
+  }
+  loadData();
+}, []);
 
   const sortedWorkouts = [...workouts];
   if (sortBy === "duration") {
