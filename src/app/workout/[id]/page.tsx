@@ -18,16 +18,21 @@ const WorkoutDetailPage = () => {
   useEffect(() => {
     async function loadData() {
       const data = await getWorkout(id);
-      if (!data) {
-      setWorkout(data);
-      setLoading(false);
+      if (data) {
+        setWorkout(data);
+        setLoading(false);
       }
     }
     loadData();
   }, [id]);
 
   if (loading) {
-    return <p className="text-center text-muted py-20">Loading…</p>;
+    return (
+      <div className="flex flex-col items-center justify-center py-32 gap-4">
+        <div className="w-10 h-10 border-4 border-line border-t-accent rounded-full animate-spin"></div>
+        <p className="text-muted text-sm">Loading workout…</p>
+      </div>
+    );
   }
 
   if (!workout) return null;
@@ -50,13 +55,13 @@ const WorkoutDetailPage = () => {
 
   return (
     <div className="grid md:grid-cols-2 mx-auto max-w-7xl gap-10 px-4 py-10">
-    <Image
-  src={workout.image}
-  alt={workout.name}
-  width={800}
-  height={600}
-  className="rounded-2xl w-full h-96 object-cover"
-/>
+      <Image
+        src={workout.image}
+        alt={workout.name}
+        width={800}
+        height={600}
+        className="rounded-2xl w-full h-96 object-cover"
+      />
       <div>
         <h1 className="text-4xl uppercase font-display mb-3">{workout.name}</h1>
         <p className="text-muted mb-5">{workout.description}</p>
@@ -71,30 +76,30 @@ const WorkoutDetailPage = () => {
           ))}
         </div>
 
-        <div className="bg-card boeder border-line rounded-xl p-5 mb-6">
+        <div className="bg-card border border-line rounded-xl p-5 mb-6">
           <h2 className="text-sm uppercase font-display text-muted mb-4">
             Key Specs
           </h2>
           <div className="text-sm grid grid-cols-2 gap-3">
             <p className="text-muted">Equipment</p>
-            <p>{workout.equipment}</p>
+            <p className="border-b border-line pb-2">{workout.equipment}</p>
 
             <p className="text-muted">Difficulty</p>
-            <p>{workout.difficulty}</p>
+            <p className="border-b border-line pb-2">{workout.difficulty}</p>
 
             <p className="text-muted">Sets</p>
-            <p>{workout.sets}</p>
+            <p className="border-b border-line pb-2">{workout.sets}</p>
 
             <p className="text-muted">Reps</p>
-            <p>{workout.reps}</p>
+            <p className="border-b border-line pb-2">{workout.reps}</p>
 
             <p className="text-muted">Duration</p>
-            <p className="flex items-center gap-1">
+            <p className="flex items-center gap-1 border-b border-line pb-2">
               <Clock size={12} /> {workout.duration} min
             </p>
 
             <p className="text-muted">Calories</p>
-            <p className="flex items-center gap-1">
+            <p className="flex items-center gap-1 border-b border-line pb-2">
               <Flame size={12} /> {workout.caloriesBurned} kcal
             </p>
 
@@ -142,5 +147,5 @@ const WorkoutDetailPage = () => {
       </div>
     </div>
   );
-}
+};
 export default WorkoutDetailPage;

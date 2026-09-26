@@ -7,6 +7,7 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
   return (
     <Link
       href={"/workout/" + workout.id}
+      prefetch={true}
       className="bg-card border border-line rounded-xl overflow-hidden hover:border-accent transition block"
     >
       <Image
@@ -31,7 +32,7 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
 
         <p className="text-muted text-xs mb-3">{workout.equipment}</p>
 
-        <div className="flex text-xs text-muted  gap-4">
+        <div className="flex text-xs text-muted border-t border-line gap-4">
           <span className="flex items-center gap-1">
             <Clock size={12} /> {workout.duration} min
           </span>
@@ -45,5 +46,5 @@ const WorkoutCard = ({ workout }: { workout: Workout }) => {
       </div>
     </Link>
   );
-}
-export default WorkoutCard
+};
+export default WorkoutCard;

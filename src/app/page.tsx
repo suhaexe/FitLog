@@ -29,41 +29,41 @@ const HomePage = () => {
   }
   return (
     <div>
-      <section className="max-w-7xl mx-auto px-4 py-6">
-        <div className="bg-card border border-line rounded-2xl p-8 md:p-12 items-center  grid md:grid-cols-2 gap-16">
-        <div>
-          <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4">
-            Workout Library
-          </p>
-          <h1 className="font-display text-4xl md:text-6xl uppercase leading-tight mb-6">
-            Train with intent. Log every set.
-          </h1>
-          <p className="text-muted mb-8">
-            FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
-            into today&apos;s plan, and watch the week&apos;s work add up.
-          </p>
-          <a
-            href="#library"
-            className="inline-flex items-center gap-2 bg-accent text-black font-bold uppercase text-sm px-6 py-3 rounded-full"
-          >
-            Browse Workouts
-          </a>
-        </div>
+      <section className="max-w-7xl mx-auto px-4 py-6 text-center sm:text-left">
+        <div className="bg-card border border-line rounded-2xl p-8 md:p-12 items-center grid md:grid-cols-2 gap-8 md:gap-16">
+          <div>
+            <p className="text-accent text-xs font-bold uppercase tracking-widest mb-4 text-center sm:text-left">
+              Workout Library
+            </p>
+            <h1 className="font-display text-4xl md:text-6xl uppercase leading-tight mb-6 text-center sm:text-left">
+              Train with intent. Log every set.
+            </h1>
+            <p className="text-muted mb-8">
+              FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
+              into today&apos;s plan, and watch the week&apos;s work add up.
+            </p>
+            <a
+              href="#library"
+              className="inline-flex items-center gap-2 bg-accent text-black font-bold uppercase text-sm px-6 py-3 rounded-full"
+            >
+              Browse Workouts
+            </a>
+          </div>
 
-        <Image
-          src="/banner.png"
-          alt="gym"
-          width={800}
-          height={600}
-          loading= "eager"
-          className="w-full h-96 object-contain"
-        />
+          <Image
+            src="/banner.png"
+            alt="gym"
+            width={800}
+            height={600}
+            loading="eager"
+            className="w-full h-64 md:h-96 object-contain"
+          />
         </div>
       </section>
 
       <section id="library" className="max-w-7xl mx-auto px-4 py-10">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
-          <div>
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-8 gap-4">
+          <div className="text-center sm:text-left">
             <h2 className="font-display text-3xl uppercase mb-2">
               The Library
             </h2>
@@ -72,7 +72,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between w-full sm:w-auto sm:gap-4">
             <label className="text-muted text-xs uppercase">Sort By</label>
             <select
               value={sortBy}
@@ -96,7 +96,7 @@ const HomePage = () => {
           </div>
         )}
       </section>
-      </div>
+    </div>
   );
 };
 export default HomePage;

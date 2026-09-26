@@ -40,13 +40,19 @@ const Navbar = () => {
         <div className="flex items-center gap-5">
           <Link href="/my-plan" className="flex items-center gap-2">
             <span className="text-wite text-sm">Plan</span>
-            <span className="text-black text-xs font-bold bg-accent w-6 h-6 rounded-full flex items-center justify-center">
+            <span
+              suppressHydrationWarning
+              className="text-black text-xs font-bold bg-accent w-6 h-6 rounded-full flex items-center justify-center"
+            >
               {plan.length}
             </span>
           </Link>
           <Link href="/my-plan" className="flex items-center gap-2">
             <span className="text-muted text-sm">Saved</span>
-            <span className="text-xs font-bold border border-line w-6 h-6 rounded-full flex items-center justify-center">
+            <span
+              suppressHydrationWarning
+              className="text-xs font-bold border border-line w-6 h-6 rounded-full flex items-center justify-center"
+            >
               {saved.length}
             </span>
           </Link>
