@@ -1,12 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "img.magnific.com" },
-      { protocol: "https", hostname: "images.unsplash.com" },
-    ],
+  async rewrites() {
+    return [
+      {
+        source: "/api/fitlog",
+        destination: "https://api.abcz.workers.dev/api/fitlog",
+      },
+      {
+        source: "/api/fitlog/:path*",
+        destination: "https://api.abcz.workers.dev/api/fitlog/:path*",
+      },
+    ];
   },
 };
 

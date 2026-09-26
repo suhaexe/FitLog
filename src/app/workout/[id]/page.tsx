@@ -17,11 +17,13 @@ const WorkoutDetailPage = () => {
 
   useEffect(() => {
     async function loadData() {
-      const data = await getWorkout(id);
-      if (data) {
-        setWorkout(data);
-        setLoading(false);
+      try {
+        const data = await getWorkout(id);
+        if (data) setWorkout(data);
+      } catch (error) {
+        console.error("Failed to load workout:", error);
       }
+      setLoading(false);
     }
     loadData();
   }, [id]);
